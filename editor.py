@@ -323,6 +323,7 @@ class KikiEditor(QMainWindow):
         super().__init__()
 
         self.app_root = resolve_app_root()
+        self.app_icon = QIcon(str(self.app_root / "kiki-icon2.png"))
         self.repo_root = self.app_root
         self.kiki_root = self.app_root / "kiki_registered"
         self.pages_root = self.kiki_root / "pages"
@@ -366,6 +367,7 @@ class KikiEditor(QMainWindow):
 
     def _build_ui(self) -> None:
         self.setWindowTitle("kiki editor")
+        self.setWindowIcon(self.app_icon)
         self.resize(1400, 900)
 
         self.main_toolbar = QToolBar("Tools", self)
@@ -1312,6 +1314,8 @@ class KikiEditor(QMainWindow):
             "<meta charset='utf-8'>"
             "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
             f"<base href='{self._base_url.toString()}' />"
+            "<link rel='icon' type='image/x-icon' href='../favicon.ico'>"
+            "<link rel='icon' type='image/png' sizes='512x512' href='../kiki-icon2.png'>"
             f"<link rel='stylesheet' type='text/css' href='{theme_href}'>"
             "<style>"
             "div.page_content { line-height: 1.6; }"
@@ -1447,6 +1451,7 @@ class KikiEditor(QMainWindow):
 
 def main() -> int:
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(str(resolve_app_root() / "kiki-icon2.png")))
     window = KikiEditor()
     window.show()
     return app.exec()

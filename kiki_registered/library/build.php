@@ -100,12 +100,18 @@ function build_page_header($stylesheet)
     // when using nginx rewrite rules for "easy" permalinks.
     $style_base_url = get_site_basename("easy");
     $stylesheeturl =  $style_base_url . $stylesheet;
+    $faviconurl = $style_base_url . "favicon.ico";
+    $iconpngurl = $style_base_url . "kiki-icon2.png";
+    $appleiconurl = $style_base_url . "apple-touch-icon.png";
 
     $header_output = '<!DOCTYPE html>';
     $header_output .= '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />';    
     $header_output .= '<html>';
     $header_output .= '<head>';
     $header_output .= '<link rel="stylesheet" type="text/css" href="'.$stylesheeturl.'">';
+    $header_output .= '<link rel="icon" type="image/x-icon" href="'.$faviconurl.'">';
+    $header_output .= '<link rel="icon" type="image/png" sizes="512x512" href="'.$iconpngurl.'">';
+    $header_output .= '<link rel="apple-touch-icon" sizes="180x180" href="'.$appleiconurl.'">';
     $header_output .= '</head>';
 
     return $header_output;
