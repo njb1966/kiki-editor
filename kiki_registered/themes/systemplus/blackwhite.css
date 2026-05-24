@@ -1,0 +1,376 @@
+/* set base colours */
+:root { --color_main: #000000; --color_contrast: #ffffff; }
+
+/* fonts */
+@font-face 
+{	font-family: chicago-12; src: url(fonts/chicago-12.ttf); font-size: 16px; font-weight: normal; font-style: normal; }
+@font-face
+{	font-family: chicago-12-bold; src: url(fonts/chicago-12-bold.ttf); font-size: 16px; font-weight: normal; font-style: normal;}
+@font-face 
+{	font-family: chicago-9; src: url(fonts/chicago-9.ttf); font-size: 16px; font-weight: normal; font-style: normal; }
+@font-face
+{	font-family: chicago-9-bold; src: url(fonts/chicago-9-bold.ttf); font-size: 16px; font-weight: normal; font-style: normal;}
+@font-face
+{	font-family: geneva-9; src: url(fonts/geneva-9.ttf); font-size: 16px; font-weight: normal; font-style: normal;}
+@font-face
+{	font-family: geneva-9-bold; src: url(fonts/geneva-9-bold.ttf); font-size: 16px; font-weight: normal; font-style: normal;}
+
+/* pages share these styles */
+html body { margin: 0; background-color: var(--color_main); color: var(--color_main) !important; font-family: chicago-9; -webkit-font-smoothing: none !important; -moz-osx-font-smoothing:grayscale !important; overflow: hidden;}
+
+div#container { margin-top: 0.5em; position: relative; max-width: 95%; margin-left: auto; margin-right: auto; margin-bottom: 0.5em; padding-bottom: 1em;}
+
+div#navbar { top:0; position: sticky; font-family:chicago-12; text-align: left; max-height: 1.4em; line-height: 1.2em; overflow: hidden; border-bottom: 1px solid var(--color_main);}
+div#navbar:before
+{
+	position: absolute;
+	z-index: -1;
+	left: -1px;
+	right: -1px;
+	top: 0px;
+	bottom: 0px;
+	content: " ";
+	background-color: var(--color_contrast);
+	border-top-left-radius:8px; 
+	border-top-right-radius:8px;
+}
+/* left side of nav menu */
+div#navmenu { display: inline; text-align: left; padding-left: 1em; overflow: hidden;}
+/* a single site icon displayed on the right side of the menu */
+div#navmenu-right { position: absolute; display: inline; right: 1em; text-align: right; overflow: hidden; height: 2em;}
+div#navmenu-right img { height: 16px; width: 16px; vertical-align: middle; }
+div.navmenu-item
+{
+	padding-top: 1px;
+	display:inline-block;
+	position: relative;
+	overflow: hidden;
+	vertical-align:middle;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+div.navmenu-item span a
+{
+	display:block;
+	margin: auto;
+	font-family: chicago-12;
+	text-align:center;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	text-decoration: none;
+	color: var(--color_main) !important;
+}
+
+div.navmenu-item span a:hover {	color: var(--color_contrast) !important;}
+div#navmenu-right div.navmenu-item a:hover span { color: var(--color_contrast) !important;}
+
+/* separates navbar from content */
+div.separator 
+{
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid var(--color_main);
+}
+
+div#desktop
+{
+	background-image: url(images/bg-checkered.png);
+    background-size: 2px 2px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	overflow-y: hidden;
+}
+
+div.window
+{
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+	margin-left: 1em;
+	margin-right: 1em;
+	display: grid; /* allows window to expand to contents height */
+	background-color: var(--color_contrast);
+	height: fit-content; /* critical fix for iOS: allows for scrolling content */
+	min-width: 13em;
+	max-width: 80%;
+	outline: 1px solid var(--color_main);
+	border-right: 1px solid var(--color_main);
+	border-bottom: 1px solid var(--color_main);
+}
+
+div.window-titlebar
+{
+	text-align: center;
+	font-family: chicago-12;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: var(--color_contrast);
+	border-top: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	border-right: none;
+	border-left: none;
+	border-image-source: url('images/window-titlebar.png');
+	border-image-slice: 6 2 6 2 fill;
+	border-image-repeat: round;
+	height: 13px;
+	line-height: 13px; /* necessary to vertically center title text */
+	width: 99%;
+}
+
+div#window-menu
+{
+	border-bottom: 1px solid var(--color_main); text-align: right; padding-left: 1em; overflow: hidden;
+}
+
+div.icon-small, div.icon-large
+{
+	float: right;
+	width: 3em;
+	text-align:center;
+}
+
+span.icon-small, span.icon-large
+{
+	text-align:center;
+	padding: 0.2em;
+	display: inline-block;
+	vertical-align: top;
+}
+
+span.icon-large img
+{
+	height: 32px;
+	width: 32px;
+}
+
+span.icon-small img
+{
+	height: 16px;
+	width: 16px;
+}
+
+span.icon_title
+{
+	font-family: geneva-9;
+	display: block;
+	background-color: var(--color_contrast);
+	padding: 2px;
+	text-align: center;
+}
+
+div.window-titlebar span
+{
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: var(--color_contrast);
+}
+
+div#content 
+{
+	/* setting display to grid and max-height to 80vh is the magic
+	   recipe for getting a scrollbar to appear in the page_content area */
+	display:grid;
+	max-height: 70vh;
+	overflow-y: auto;
+	/* for some reason, safari needs to have visited link colours forced */
+	a { color: var(--color_main) !important; text-decoration: underline; text-decoration-style: solid; padding: 2px; padding-left: 4px; margin-left: -4px;}
+	a:visited { text-decoration-style: dashed !important; }
+	a:hover { color: var(--color_contrast) !important; text-decoration: none;}
+}
+
+/* pages */
+div.page_content
+{
+	max-height: 100%;
+	padding: 0.5em;
+}
+
+/* page images */
+div.page_content img
+{
+	max-width: 90%; /* force resize of oversized images */
+}
+
+div.edit_form
+{
+	font-family: geneva-9;
+}
+
+div.edit_form code, div.edit_form pre
+{
+	font-family: geneva-9 !important;
+}
+
+/* individual pages */
+div.page { padding: 0.5em; margin-top: 1em;}
+div.page_title { padding: 0.5em; font-weight: bold; }
+div.title { font-weight: bold; padding: 0.5em;}
+div.page_header { padding: 0.5em; }
+div.page_date { }
+div.page_time { }
+div.page_author {}
+
+/* subtitle */
+div.subtitle { font-size:3em; font-family: chicago-12 !important; }
+div.subtitle2 { font-size: 2em; font-family: chicago-12 !important; }
+
+/* text */
+bold, strong { font-family: chicago-9-bold !important; font-weight: normal !important;}
+
+/* links */
+a:hover { background-color: var(--color_main); color: var(--color_contrast); text-decoration: dotted;}
+a { color: var(--color_main) !important; text-decoration: underline; text-decoration-style: solid; padding: 2px; padding-left: 4px; margin-left: -4px;}
+
+/* errors */
+div.error { text-align: center; }
+div.error span { color: var(--color_contrast) !important; background-color: var(--color_main) !important;}
+
+/* footer */
+div.footer { text-align: right; color: var(--color_main); margin-bottom: 1em; }
+
+/* code */
+code { color:var(--color_main);}
+
+/* pre */
+pre { white-space:pre-wrap; }
+
+/* input */
+textarea { width: 100%; min-height: 10em; font-family: geneva-9 !important; font-size: 16px !important;}
+
+/* force all text colours to black */
+font {color:var(--color_main) !important;}
+span {color: var(--color_main) !important;}
+
+/* buttons */
+span.button, button 
+{
+	display: inline-block;
+	margin: 0.5em;
+	font-family: chicago-12 !important; 
+	font-size: 16px !important; 
+	border: 1px solid var(--color_main); 
+	background-color: var(--color_contrast); 
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em; 
+	color: var(--color_main); 
+	border-radius: 0.5em;
+}
+span.button a, button a { text-decoration: none !important; }
+span.button:hover, button:hover
+{
+	background-color: var(--color_main);
+	color: var(--color_contrast);
+}
+
+/* preformatted text */
+pre, code { } 
+
+/* custom scrollbar */
+::-webkit-scrollbar-thumb
+{
+    border: 1px solid var(--color_main);
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	cursor: pointer;
+}
+
+::-webkit-scrollbar 
+{
+    width: 1em;
+}
+
+::-webkit-scrollbar-track
+{
+    border-left: 1px solid var(--color_main);
+	border-right: 1px solid var(--color_main);
+	background: url(images/bg-staggered.png) repeat;
+    background-size: 4px 2px;
+}
+
+/* scrollbar buttons */
+::-webkit-scrollbar-button:horizontal:start:decrement, ::-webkit-scrollbar-button:horizontal:end:increment, ::-webkit-scrollbar-button:vertical:start:decrement, ::-webkit-scrollbar-button:vertical:end:increment {
+    display:block
+}
+
+::-webkit-scrollbar-button:vertical:start:increment, ::-webkit-scrollbar-button:vertical:end:decrement, ::-webkit-scrollbar-button:horizontal:start:increment, ::-webkit-scrollbar-button:horizontal:end:decrement
+{
+    display: none;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url(images/uparrow-released.png);
+	background-repeat: none;
+    background-size:13px;
+    height: 15px;
+	width: 13px;
+	border: 1px solid var(--color_main);
+	border-top: none;
+	background-color: var(--color_contrast);
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement:active {
+    background-image: url(images/uparrow-pressed.png);
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    background-image: url(images/downarrow-released.png);
+	background-repeat: none;
+    background-size:13px;
+    height: 15px;
+	width: 13px;
+	border: 1px solid var(--color_main);
+	background-color: var(--color_contrast);
+}
+
+::-webkit-scrollbar-button:vertical:end:increment:active {
+    background-image: url(images/downarrow-pressed.png);
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement
+{
+    background-image: url(images/leftarrow-released.png);
+	background-repeat: none;
+    background-size:13px;
+    height: 15px;
+	width: 13px;
+	border: 1px solid var(--color_main);
+	border-left: none;
+	background-color: var(--color_contrast);
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement:active
+{
+    background-image: url(images/leftarrow-pressed.png);
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment
+{
+    background-image: url(images/rightarrow-released.png);
+	background-repeat: none;
+    background-size:13px;
+    height: 15px;
+	width: 13px;
+	border: 1px solid var(--color_main);
+	border-left: none;
+	background-color: var(--color_contrast);
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment:active
+{
+    background-image: url(images/rightarrow-pressed.png);
+}
+
+/* creates the windows 3.1esque scrollbar styling*/
+::-webkit-scrollbar-thumb
+{
+	background-color: var(--color_contrast);
+	border: 1px solid var(--color_main);
+}

@@ -1,0 +1,133 @@
+((header))
+title:A Quick (Re-)Programmer's Guide
+menutitle:Help - Programming
+tags:help
+markup:bug
+((content))
+--======A Quick (Re-)Programmer's Guide======--
+kiki is written for three different types of people: folks that like writing but don't like programming, folks that write a lot and can handle simple scripting, and folks who like programming more than writing.
+
+For the folks who can handle a bit of simple scripting, I recommend using some of kiki's built-in variables and scripting keywords - you can learn how to use those in the [help/user_guide]{User Guide}.
+
+If you're still here, it's probably because you've decided to add a feature that kiki doesn't come with out of the box, and you're happy to get your hands dirty with some PHP.
+
+This documentation is written a bit differently than most programming documentation, which I find truly useless (don't let programmers write programming docs!). Instead of giving you a big list of function names and parameters, this is a walking tour of the source code.
+
+It is not meant to be exhaustive, but is like a map of the territory. It helps you track down the right files to make the kinds of changes you want to make.
+
+The files listed below are in (chronological) **processing order**: files at the top are processed first, and files at the end are processed last.
+
+<a id="index">=====index.php=====</a>
+
+When a user visits your site, index.php is the browser's first and last stop. All processing begins and ends in this file.
+
+index.php does a few important things (in this order, from top to bottom):
+
+* Stores any information the browser has sent as "POST" or "GET" requests, like the page name, uploaded file, tag, sort style, published content and password.
+
+* Determines whether the requested page exists, and if it does, loads that page.
+
+* When wiki mode has been enabled, create a new page when a ~~non-existent~~ page has been requested.
+
+* When a tag is requested, load and display all pages with that tag.
+
+* Loads a 404 error page when none of the above are possible.
+
+* Rebuilds the RSS feed every time the page is loaded.
+
+When a page (or more than once page) is loaded by the index, it calls **get_page()** from **/library/page.php**. That's our next stop.
+
+<a id="page">=====/library/page.php=====</a>
+
+====How Pages Are Loaded====
+
+**get_page()**: 
+
+* gets and returns a single page, fully formatted into HTML. Calls **load_page**, and when that is successful, builds the page with **build_page**. This is really just an API function to offer a clean/simple way of using load_page().
+
+**load_page()**: this is where almost all of the page parsing and loading happens. A single page is loaded into an array, and returns that array. The page loading process happens in this order:
+
+* Begin building the page and storing the ~~HTML output~~ in **$pageOutput**. While I've tried to avoid putting any hardcoded HTML in php scripts, there is unfortunately some left in this script.
+
+* Process any **$action** sent by the user. At the current time, all "commands" such as ~~publish~~, ~~edit~~, ~~delete~~, or ~~new~~ are wiki-related commands. If you'd like to add new functionality to your wiki, like handling new input types, this is where you would make the modifications.
+
+* The heavy duty work starts when data has been loaded into **$page_source** (usually from the page's file):
+
+	* The source data is extracted by **extract_header_and_content()** into an array with two keys: **header** and **content**.
+
+	* All data (variables, text) from the header is turned into **$dynamic_content**.
+
+	* Searches the header for any key:value pair using **get_header_key()**, and returns the value.
+
+	* Looks for any menuitems specified in the header, and builds a menu from them if they are present.
+
+	* Looks for the page's title in the header, and adds it to $dynamic_content.
+
+	* Gets the time and date from the file and header (if present), and adds them to $dynamic_content.
+
+	* Gets any tags present in the header, and adds them to $dynamic_content.
+
+	* Checks the header for a custom stylesheet and if present uses it as the page's stylesheet.
+
+	* Checks the header for a specified markup language, and if present uses that instead of the default markup language.
+
+	* Interpret any keywords used in either the header or content part of the page, display them inline on the page.
+
+	* When wiki mode is enabled and the page is in editing mode, load the page content into a Textarea.
+
+	* Parse any markup in the page content using the markup language currently selected, and return it as formatted HTML.
+
+* Store the completely formatted page in a **$pageData** array composed of a few different keys:
+
+	* **content**: the written body of the page found in the source page's `((`content`))`
+
+	* **header**: any key-value pairs found in the source page's `((`header`))`.
+
+	* **stylesheet**: a custom stylesheet specified for this page.
+
+	* **title**: a custom title specified for the page.
+
+	* **menu**: a custom menu specified for the page.
+
+When the page has been loaded, get_page() sends that pageData to [#build]{build.php} where that data is built into an HTML-formatted page using a template.
+
+<a id="build">=====/library/build.php=====</a>
+
+The first stop when building a page is **build_page()**, which is just a friendly function that calls all of the different steps of building a page, one at a time:
+
+**build_page_header()**: builds the HTML header of the document, most importantly including the specified stylesheet.
+
+**build_page_content()**: this is where the **content** key of the pageData is loaded into. 
+
+* This is where the bulk of the page formatting work happens. The document's content is inserted into **$theme_content_layout** which is really the file **/themes/current_themename/page_layout.php**. If you want to make any formatting changes to the document's HTML output, make modifications to the theme's **page_layout.php**.
+
+* The menu building function is also called here.
+
+**build_page_footer()**: the footer file, specified in settings.php, is turned into HTML here.
+
+**build_document_end()**: closes the HTML document tags.
+
+When the entire document has been built, it returns the whole document as a large string full of HTML. 
+
+That document HTML is returned through the (above) chain of functions, back to index.php where it is displayed on the browser.
+
+<a id="dynamic">=====Dynamic Content=====</a>
+
+One of kiki's most powerful features is being able to add dynamically-generated content to a page on the fly, instead of manually writing everything into the content section.
+
+This works great when you use one of the many built-in [help/user_guide#dynamic]{dynamic page variables}. But what if you want to use a variable of your own?
+
+To do that, you'll have to modify page.php's **load_page()** function. Here's where you can make any variable you want available to a document:
+
+For instance, say I've written a really cool function that retrieve today's forecast called **get_todays_weather()** which generates today's weather outlook as HTML. How do I add the output of that function to the dynamic variables list? Modiying page.php's **load_page** function like this:
+```
+if ($page_source)
+{
+    ... snip ...
+    `//` the $dynamic_content array is accessible when a document is parsed for variables. 
+    `//` this line adds a new weather variable
+    $dynamic_content["weather"] = get_todays_weather();
+    ... snip ...
+}
+```
+Now, any page can use the **$$weather$$** variable in the `((`content`))` section to show today's forecast.

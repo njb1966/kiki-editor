@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=kiki editor
+Comment=Edit kiki .bug pages
+Exec=kiki-editor
+TryExec=kiki-editor
+Terminal=false
+Categories=Utility;TextEditor;
+Icon=kiki-editor

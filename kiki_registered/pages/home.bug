@@ -1,0 +1,9 @@
+((header))
+title:Welcome to Your New kiki Instance
+menutitle:Home
+tags:page
+markup:bug
+((content))
+You did it! kiki is up and running. This [home] page, is the default index page for any new installation. You can either edit this page to be your new landing page, or create a new page and set that one to be the default.
+
+If this is your first time using kiki, you'll probably want to read the [help/start]{help index} page or go straight to the [help/get_started]{Getting Started Guide}.

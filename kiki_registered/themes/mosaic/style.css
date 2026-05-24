@@ -1,0 +1,245 @@
+/* set base colours */
+:root { 
+	--color_main: #c0c0c0; 
+	--color_contrast: #000000; 
+	--color_highlight: #ffffff; 
+	--color_highlight2: #ff0000; 
+	--color_shadow:#808080;
+}
+
+/* fonts */
+@font-face 
+{	font-family: times;	src: url(times.ttf); font-weight: normal; font-style: normal; }
+@font-face
+/* MS Sans Serif Bold by Lev Leontev
+https://stackoverflow.com/questions/30683657/use-windows-95-font-on-webpage*/
+{	font-family: mssans; src: url(MS_Sans_Serif_8pt_bold.ttf); font-weight: normal; font-style: normal;}
+
+
+/* pages share these styles */
+html body { margin: 0; background: url(steelrivet.png) repeat; background-color: var(--color_main); color: var(--color_contrast); font-family: times; font-smooth: never; -webkit-font-smoothing: none; overflow: hidden;}
+div#container { position: relative; max-width: 95%; margin-left: auto; margin-right: auto; margin-bottom: 0.5em; padding-bottom: 1em;}
+div#container div.contact_icon img { position: absolute; bottom: 0px; right: 1em;}
+/* window frame decoration for content area */
+div#container:before
+{
+	position: absolute;
+	z-index: -1;
+	content: " ";
+	left: -5px;
+	right: -5px;
+	top: -5px;
+	bottom: -5px;
+	background-color: var(--color_main);
+	border: 1px solid var(--color_contrast);
+}
+
+div#navbar { top:0; position: sticky; background: var(--color_main); font-family:mssans; font-size: 11px; text-align: left; padding-top: 0.2em; border:1px solid var(--color_contrast); }
+div#location { display:flex; padding-left: 1em; padding-right: 1em; white-space: nowrap; overflow: hidden; height: 2.2em; margin-bottom: 0.3em;}
+div#location span { display:inline-block; bottom:0; position: relative; line-height: 2em; }
+div.title { padding-left: 0.5em; vertical-align: middle; height: 2em; display:inline-block; background-color:var(--color_highlight); padding-right: 1em; border: 1px solid var(--color_contrast); overflow: hidden;}
+div.title span { text-align:right; height: 1.2em; line-height: 0.8em; text-overflow:ellipsis;}
+div#navmenu { text-align: left; padding-left: 1em; margin-bottom: 0.3em; overflow: hidden;}
+div.navmenu-item
+{
+	margin-left: 0.1em;
+	display:inline-block;
+	position: relative;
+	min-width: 4em;
+	overflow: hidden;
+	border: 1px solid var(--color_contrast);
+	vertical-align:middle;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+div.navmenu-item span a
+{
+	text-decoration: none;
+	display:block;
+	margin: auto;
+	font-family: mssans;
+	text-align:center;
+	height: 2em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+div.navmenu-item:before
+{
+	content:" ";
+	position: absolute;
+	z-index:-1;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	background-color: var(--color_main);
+	border-top: 2px solid var(--color_highlight);
+	border-left: 2px solid var(--color_highlight);
+	border-bottom: 2px solid var(--color_shadow);
+	border-right: 2px solid var(--color_shadow);
+}
+div.navmenu-item a
+{
+	color:black;
+}
+
+/* page submenu */
+div#page_menu {  text-decoration: none; border-left: 1px solid var(--color_contrast); border-right: 1px solid var(--color_contrast); border-bottom: 1px solid var(--color_contrast); text-align: right; font-size: 11px;font-family:mssans; }
+
+/* edit button */
+span.edit_button {  }
+
+/* separates navbar from content */
+div.separator 
+{
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 4px;
+	border-top: 1px solid var(--color_contrast);
+}
+div.separator:before
+{
+	position: absolute;
+	content: " ";
+	z-index: -1;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	border-top:1px solid var(--color_highlight);
+	border-left:1px solid var(--color_highlight);
+	border-bottom:1px solid #404040;
+	border-right:1px solid #404040;
+	background-color: var(--color_main);
+}
+
+div#content 
+{
+	/* setting display to grid and max-height to 80vh is the magic
+	   recipe for getting a scrollbar to appear in the page_content area */
+	display:grid;
+	max-height: 80vh;
+	overflow-y: auto;
+	background: var(--color_main);
+	border-left: 1px solid var(--color_contrast);
+	border-right: 1px solid var(--color_contrast);
+    border-bottom: 1px solid var(--color_contrast);
+}
+/* for some reason, safari needs to have visited link colours forced */
+div#content a:visited { color: #800080 !important; }
+
+/* pages */
+div.page_content
+{
+	max-height: 100%;
+	padding: 0.5em;
+}
+
+/* posts */
+div.page {
+	padding: 0.5em;
+	margin-top: 1em;
+}
+
+div.page_title { font-weight: bold; margin: auto;}
+div.page_body { padding: 0.5em; }
+
+/* post headers */
+div.page_header { padding: 0.5em; }
+div.page_date { }
+div.page_time { }
+div.page_author {}
+
+/* subtitle */
+div.subtitle { font-size:3em; text-shadow: 2px 2px #000; }
+div.subtitle2 { font-size: 2em; text-shadow: 2px 2px #000;}
+
+/* links */
+a:link {color: #0000ff; text-decoration: underline; }
+div.post a, div.page_content a { color: #0000ff;}
+a:visited { color: #800080; }
+a:hover { color: var(--color_highlight2); }
+div.post a:hover, div.page_content a:hover { color: var(--color_highlight2);}
+
+/* errors */
+div.error { text-align: center; color: var(--color_highlight2) !important;}
+
+/* footer */
+div.footer { background: var(--color_main); text-align: right; color: var(--color_contrast); padding:1em; }
+
+/* code */
+code { color:var(--color_contrast);}
+
+/* pre */
+pre { white-space:pre-wrap; }
+
+/* input */
+textarea { width: 100%; min-height: 10em; }
+
+/* custom scrollbar */
+::-webkit-scrollbar-thumb
+{
+    border: 1px solid var(--color_contrast);
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	cursor: pointer;
+}
+
+::-webkit-scrollbar 
+{
+    width: 1em;
+}
+
+::-webkit-scrollbar-track
+{
+    border-left: 1px solid var(--color_contrast);
+	background-color: #c3c3c3;
+}
+
+/* vertical scrollbar buttons */
+::-webkit-scrollbar-button:horizontal:start:decrement, ::-webkit-scrollbar-button:horizontal:end:increment, ::-webkit-scrollbar-button:vertical:start:decrement, ::-webkit-scrollbar-button:vertical:end:increment {
+    display:block
+}
+
+::-webkit-scrollbar-button:vertical:start:increment, ::-webkit-scrollbar-button:vertical:end:decrement
+{
+    display: none;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url(uparrow.png);
+    background-size:100%;
+    height: 1em;
+    border-top: 2px solid var(--color_highlight);
+    border-left: 2px solid var(--color_highlight);
+    border-right: 3px solid var(--color_shadow);
+    border-bottom: 3px solid var(--color_shadow);
+    outline: 1px solid var(--color_contrast);
+    outline-offset: -1px;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+    background-image: url(downarrow.png);
+    background-size:100%;
+    height: 1em;
+    border-top: 2px solid var(--color_highlight);
+    border-left: 2px solid var(--color_highlight);
+    border-right: 3px solid var(--color_shadow);
+    border-bottom: 3px solid var(--color_shadow);
+    outline: 1px solid var(--color_contrast);
+    outline-offset: -1px;
+}
+
+/* creates the windows 3.1esque scrollbar styling*/
+::-webkit-scrollbar-thumb
+{
+    border-top: 2px solid var(--color_highlight);
+    border-left: 2px solid var(--color_highlight);
+    border-right: 3px solid var(--color_shadow);
+    border-bottom: 3px solid var(--color_shadow);
+    outline: 1px solid var(--color_contrast);
+    outline-offset: -1px;
+}

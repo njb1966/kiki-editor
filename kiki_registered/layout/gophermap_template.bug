@@ -1,0 +1,13 @@
+((header))
+// gophermap.bug acts as a template
+// for rendering gophermap pages
+// the template uses $$dynamic variables$$
+// in order to render dynamic content
+((content))
+====$$title$$====
+$$content$$
+-----
+====Footnotes====
+$$footnotes$$
+====Main Menu====
+$$menu$$

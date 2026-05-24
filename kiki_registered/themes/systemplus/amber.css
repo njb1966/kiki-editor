@@ -1,0 +1,40 @@
+/* amber on dark background */
+/* set base colours */
+:root { --color_main: #200000; --color_contrast: #ffb523; }
+
+html body { background-color: var(--color_main) !important; color: var(--color_contrast) !important; }
+/* force all text colours to primary */
+font {color:var(--color_contrast) !important;}
+span {color: var(--color_contrast) !important;}
+div #navbar { border: none; } 
+div #navbar:before { border: 1px solid var(--color_contrast); background-color: var(--color_main); left: 0; right: 0; }
+div.navmenu-item span a { color: var(--color_contrast) !important; }
+div.navmenu-item span a:hover { color: var(--color_main) !important; background-color: var(--color_contrast) !important; }
+div#navmenu-right div.navmenu-item a:hover span { color: var(--color_main) !important;}
+div.separator { border-bottom: 1px solid var(--color_contrast);}
+div#desktop { background-image: none; border-left: 1px solid var(--color_contrast); border-bottom: 1px solid var(--color_contrast); border-right: 1px solid var(--color_contrast);}
+div.window { background-color: var(--color_main); outline: 1px solid var(--color_contrast);	border-right: 1px solid var(--color_contrast);	border-bottom: 1px solid var(--color_contrast); }
+div.window-titlebar { background-color: var(--color_main); border-image-source: url('images/window-titlebar-amber.png'); border-left: 1px solid var(--color_contrast);border-right: 1px solid var(--color_contrast); }
+div#window-menu { border-bottom: 1px solid var(--color_contrast);}
+div.window-titlebar span { background-color: var(--color_main); color: var(--color_contrast) !important; }
+span.icon_title { background-color: var(--color_contrast); color: var(--color_main) !important;}
+div#content a { color: var(--color_contrast) !important; } 
+div#content a:hover { color: var(--color_main) !important; background-color: var(--color_contrast) !important;}
+a:hover { background-color: var(--color_contrast) !important; color: var(--color_main) !important; }
+a { color: var(--color_contrast) !important; text-decoration: underline; text-decoration-style: solid; padding: 2px; padding-left: 4px; margin-left: -4px;}
+div.error span { color: var(--color_main) !important; background-color: var(--color_contrast) !important;}
+code { color:var(--color_contrast) !important;}
+pre { color: var(--color_contrast) !important; }
+textarea { background-color: var(--color_main) !important; color: var(--color_contrast);}
+span.button, button  { border: 1px solid var(--color_contrast); background-color: var(--color_main); color:var(--color_contrast);} 
+span.button:hover, button:hover { background-color: var(--color_contrast); color: var(--color_main); }
+::-webkit-scrollbar-thumb { border: 1px solid var(--color_contrast); background: var(--color_main); }
+::-webkit-scrollbar-track {background: url(images/bg-staggered-amber.png) repeat; background-size: 4px 2px; border-left: 1px solid var(--color_contrast); border-right: 1px solid var(--color_contrast);}
+::-webkit-scrollbar-button:vertical:start:decrement {background-image: url(images/uparrow-released-amber.png); background-size:13px; border: 1px solid var(--color_contrast); background-color: var(--color_main);}
+::-webkit-scrollbar-button:vertical:start:decrement:active { background-image: url(images/uparrow-pressed-amber.png); }
+::-webkit-scrollbar-button:vertical:end:increment { background-image: url(images/downarrow-released-amber.png); border: 1px solid var(--color_contrast); background-color: var(--color_main);}
+::-webkit-scrollbar-button:vertical:end:increment:active { background-image: url(images/downarrow-pressed-amber.png);}
+::-webkit-scrollbar-button:horizontal:start:decrement { background-image: url(images/leftarrow-released-amber.png); border: 1px solid var(--color_contrast); background-color: var(--color_main);}
+::-webkit-scrollbar-button:horizontal:start:decrement:active { background-image: url(images/leftarrow-pressed-amber.png); }
+::-webkit-scrollbar-button:horizontal:end:increment { background-image: url(images/rightarrow-released.png-amber); border: 1px solid var(--color_contrast); background-color: var(--color_main);}
+::-webkit-scrollbar-button:horizontal:end:increment:active { background-image: url(images/rightarrow-pressed-amber.png); }

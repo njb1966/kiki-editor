@@ -1,0 +1,49 @@
+((header))
+title:My First Post
+date:2025-04-16
+author:[www.example.com/]{Kiki McMeow}
+tags: post
+markup:bug
+
+((content))
+Tags: $$tags$$
+
+Author: $$author$$
+
+Date: $$date$$
+
+This is a sample post and example of Bug formatting. You make paragraphs by adding one empty space between lines of text.
+
+<a id="start">====This is a Large Heading====</a>
+
+--This line is centered.--
+
+~~This line is in italics~~.
+
+**This line is in bold.**
+
+[home]{This is an internal link}.
+
+[#start]{This is a link to a named anchored on this page}.
+
+[tomodashi.com/kiki]{This is an external link}.
+
+>>>
+Blockquoted text appears indented.
+
+It can have multiple paragraphs.
+>>>
+
+'''
+Preformatted text preserves its
+                formatting with 
+                multiple lines.
+'''
+
+```
+<?php
+	// code is also multi-line, and preserves 
+	// its formatting, but with nicer code styling
+	echo "test";
+?>
+```

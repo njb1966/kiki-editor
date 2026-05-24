@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>My Homepage</title><link>?tag=journal</link><description>All About Me</description><language>en-us</language><item><title>the beginning</title><link>?page=2023-12-24</link><description><![CDATA[<p>Date: Sunday December 24th, 2023
+</p>
+<p>Time: 01:25:59 AM
+</p>
+<p>By: <a href="http://mastodon.tomodori.net/@vga256">vga256</a>
+</p>
+<p>today I made my first deposit of $148.02 to my (business) chequing account, which will be the home base for any of the funds for tomodashi.
+why $148? because that's a bunch of trashy cryptocurrency that was sitting in a coinbase account over the past few months, slowly self-inflating due to idiots ruining their lives listening to other manipulative idiots. i didn't pay for a cent of it - all gifted from coinbase's "learning rewards".
+</p>
+<p>i've spent the last couple of days designing tomodashi's launch site. most of it is statically generated from php that i wrote while building <a href="http://tomo.city">tomo.city</a>. 
+]]></description><pubDate>Sun, 24 Dec 2023 03:00:00 GMT</pubDate><guid>?page=2023-12-24</guid></item><item><title>boxing day</title><link>?page=2023-12-26</link><description><![CDATA[<p>Date: Tuesday December 26th, 2023
+</p>
+<p>Time: 01:26:29 AM
+</p>
+<p>By: <a href="http://mastodon.tomodori.net/@vga256">vga256</a>
+</p>
+<p>took all of christmas day off and spent it with my wife and family. tried not to think about the site or the company or any game ideas with some success.
+</p>
+<p>back at work on the site today, learning how to cartoon. i gave up trying to emulate other cartoonists styles, and just went with my my hands know - sort of - how to do.
+</p>
+<p>can't say that i love the results, but it's what my mind and body are capable of for the time being. deposited $100 that my wonderful grandmother sent me as a christmas gift, into the tomodashi account. will write a letter to thank her, and explain to her what i'll use the money for. how do i explain to someone born before the second world war what computer games are?
+]]></description><pubDate>Tue, 26 Dec 2023 03:00:00 GMT</pubDate><guid>?page=2023-12-26</guid></item><item><title>the failure to choose</title><link>?page=2023-12-30</link><description><![CDATA[<p>Date: Saturday December 30th, 2023
+</p>
+<p>Time: 01:26:47 AM
+</p>
+<p>By: <a href="http://mastodon.tomodori.net/@vga256">vga256</a>
+</p>
+<p>i've been pulling my hair out with different art tests over the past two weeks, trying to come up with the visual style for tomodashi's first game. each art test gets me one step forward, and two steps back. i just can't seem to <strong>choose</strong> one.
+</p>
+<p>the word "choose" really struck a chord. in the bath i had a long think about what got me here, after over 15 years of "thinking about" starting a game company and making my own games.
+</p>
+<p>back in the mid-2000's, my best friend and i at the time were in graduate school, and miserable. we both hated being teaching assistants, we hated a lot of the research, and we hated the subject areas we worked in. what got us excited was *games*. whenever we talked about games, our faces lit up, and we'd spend hours arguing over what made <em>Metroid</em> or <em>Tetris</em> or <em>Fallout</em> the best. we'd spend an equal number of hours tearing apart games like <em>Baldur's Gate</em>, and why we thought it was an inferior role-playing game (compared to pencil'n'paper experiences). those chats soon transformed into a couples role-playing group (<em>Deadlands</em>, <em>Planescape</em>) that lasted for years.
+</p>
+<p>that semester we took a game design course together, and cemented a plan: we were going to keep working as grad students, but moonlight as game developers. we had no idea what we were doing, but we were <em>sure</em> that whatever game we made, it was going to be better than <em>Baldur's Gate</em>. we wrote design documents, we went on long walks arguing over mechanics, we learned python; eventually we began building a game in pygame.
+</p>
+<p>but we needed money, we figured, if we were going to do this "right". we thought up and registered a business name, and then we opened a business banking account. but with no prospects for game development contracts, we rebranded ourselves as software engineers. we scored a couple of (to us) lucrative database and web contracts that added up to several thousands of dollars by the end of the year.
+</p>
+<p>but after a year, we still had no game. our pygame-based engine was barely in its infancy, and all of the excitement around making an amazing RPG had long since faded away. programming a game after programming databases and web front ends all week felt like a chore, even if it was a happy chore.
+</p>
+<p>after two years, we called it quits. we were both close to graduating from our Master's programs, and had no idea what was next. we liquidated the bank accounts and went our separate ways.
+</p>
+<p>i was despondent. without him, i felt like i didn't have the skills or the motivation to make a game by myself. instead of plugging on, i gave up on games. i soon graduated, and my academic supervisor offered me a position as a Ph.D student. 
+</p>
+<p>thinking i had no other choice, i became a Ph.D student. i continued on in my graduate program in misery for years, and considered quitting many times. i moaned to my friends about how much i hated graduate school, but all of them assured me to keep mushing on, because coming out with a degree was better than coming out with nothing. i listened to them. 
+</p>
+<p>in the evenings, i'd pass my time by writing about games and talking about them non-stop. i wrote several designs on paper, but never quite committed to making one on my own. years passed.
+</p>
+<p>in the late 2000's, i graduated and started teaching in my discipline as a travelling "adjunct" or sessional lecturer. this type of work consists of short-term (one-semester) contracts that pay little, and are incredibly demanding. after a year of it, i was absolutely burned out.
+</p>
+<p>out of nowhere, i was invited to apply for a faculty position at a respectable university in another town. faculty positions are rare, highly sought after, and guarantee a degree of permanence never found as a sessional. the staff in the department were kind and generous, and a lot of fun to be around. everyone i knew told me it was an incredible opportunity. being <em>asked to apply for a position</em> was practically the same thing as being offered one outright.
+</p>
+<p>so i applied. and four months later, i was offered the job. but instead of feeling excited, i felt a knot of dread in my stomach. the job would mean a lifetime of marking and teaching and research in a discipline i didn't care about anymore. when i approached the hiring committee about changing my research focus to gaming and media, they all shrugged and said that it wasn't a very interesting subject to them. couldn't I pick something sexier?
+</p>
+<p>i felt torn. how could i turn down a job that any other recent grad would saw off their left arm for? i went to a buddy of mine who was a department chair at a local university, and asked him what i should do. how did i know this was the right job for <em>me?</em> he smiled kindly and said, <em>"chris, the right job is the one that someone will pay you to do for them."</em>
+</p>
+<p>i was stunned. i sat there in silence and processed his words for hours. a part of me knew that he was right: these jobs are one in a million, and the department *wanted me* there. and yet, a part of me knew that this was terrible advice for someone like me. i hated my discipline, and ultimately just wanted to be making computer games instead of teaching.
+</p>
+<p>a few days later, i called the chair of the hiring committee and announced my decision: i was not going to take the job, and i was leaving academia for good. it was one of the hardest, and most important phone calls i've ever made in my life. 
+</p>
+<p>i realized today that i've struggled with making choices for myself most of my life. when my game development partner quit, i gave up on my dream. when my grad supervisor offered me a Ph.D slot, i took it without asking myself if it was what i wanted. i allowed other people to make the choices for me. i took the easy way out, which meant accepting whatever career opportunity came up because "anyone else would say it was a good choice". they were never *my* choices, because the choices were made by values external to who i am as a person. i failed to choose.
+</p>
+<p>that makes starting a game development company of my own, using ideas out of my own head, a terrifying prospect. so even something as seemingly-benign as picking a visual style or colour palette for a game can be anxiety-inducing.
+</p>
+<p>and yet - being in the position to choose, <em>really choose</em>, feels wholesome. picking how the world and characters should look feels just as good as the day i chose to quit academia. even if my choices turn out to be the wrong ones, i can at least say a few years down the road: <em>they were my choices</em>.
+]]></description><pubDate>Sat, 30 Dec 2023 03:00:00 GMT</pubDate><guid>?page=2023-12-30</guid></item><item><title>what to do when you have a bad design</title><link>?page=2024-01-06</link><description><![CDATA[<p>Date: Saturday January 06th, 2024
+</p>
+<p>Time: 01:26:38 AM
+</p>
+<p>By: <a href="http://mastodon.tomodori.net/@vga256">vga256</a>
+</p>
+<p>i'm used to frustrating design experiences when i'm working on a game. they usually involve gameplay or story elements that don't quite pan out the way they appeared in your head. sometimes it costs you weeks or months of development time to find out that something you designed <em>just doesn't work</em> - or more specifically, isn't very enjoyable for a player.
+</p>
+<p>i found this out again most recently with designing, from the ground up, tomodashi's launch title. i wanted to start this company fresh. instead of continuing work on passion projects that had been years in the making, i would design something truly different. something exciting, something new, yet recognizable.
+</p>
+<p>i thought back to the MS-DOS era and the games that left a huge impression on me. on my shelf was a copy of <em>X-COM 2: Terror from the Deep</em>. this was the sequel to X-COM which was met with a lot of criticism: it was hard, it was all underwater, and the land-based terror missions sucked.
+</p>
+<p>but it had something going for it: the underwater missions were incredibly beautiful and intoxicatingly claustrophobic, owing to an isometric perspective and very carefully chosen aquamarine palette.
+</p>
+<p>but I didn't want to make a strategic or tactical combat game. it's been done, and done so much better than anyone deserves already (see: <em>Jagged Alliance 2</em>). so I spent some time re-imagining what the environment of <em>Terror from the Deep</em> might be like in a different genre.
+</p>
+<p>that's when I stumbled upon some old screenshots of an MS-DOS game called <em>Cadaver</em>. Cadaver was an Amiga title made by the Bitmap Brothers, back in the early 90s. it had gorgeously drawn isometric art, with systemic realtime gameplay organized around exploring a cavernous dungeon full of doors, traps and creatures. puzzles were solved using a combination of physics, movement and inventory items.
+</p>
+<p>i thought: what if I combined the gameplay and visual style of <em>Cadaver</em> with the <strong>setting</strong> of <em>X-COM 2</em>? and what if, instead of fighting alien creatures, you could explore and document your surroundings, like in the adventure game <em>The Dig</em>?
+</p>
+<p>the design came together in a couple of days. the setting would be an ancient asteroid impact in Antarctica, that had deposited spores of alien creatures in the ice. millions of years later, as the polar caps melted due to global warming, the alien spores hatched and weird alien creatures began populating the area. Antarctic research stations were deserted due to the danger they posed, and only tiny expeditions of xenobiologists would be sent in to monitor and explore the area for short periods.
+</p>
+<p>it would be a role-playing game, where you played the role of a solo xenobiologist. would you explore the area and collect alien specimens purely as a hands-off observer of wildlife? or perhaps bully your way past, or even kill, dangerous alien creatures in your pursuit of the rarest ones? or - with a touch of evil corporate intrigue - you could extract the DNA ("XNA") of certain species and sell them to the highest bidder.
+</p>
+<p>it was exactly the kind of game i would have wanted to play when I was fifteen years old. an MS-DOS game re-imagined for 2024, with a variety of gameplay mechanics that went beyond combat.
+</p>
+<p>i wrote it all up in a four-page design document, giving it a working title of <strong>Xenobiosys</strong>. a few highlights:
+<code>
+Xenobiosys: An Aquatic Role-Playing Adventure
+</p>
+<p>General Overview
+</p>
+<p>The setting and story of The Dig meets Roadside Picnic, with an isometric perspective and Fallout-style gameplay.
+</p>
+<p>Audience
+</p>
+<p>Xenobiosys targets an overlooked population of adventure/role-playing game players that value exploration over combat, creative tool-use over deterministic logic puzzles, and interaction over character dialogue.
+</p>
+<p>Design Overview
+</p>
+<p>Xenobiosys is a role-playing adventure where a player creates a character whose primary purpose is to scientifically explore, document, analyze and report their findings in a beautiful, dangerous underwater environment full of alien creatures and environmental hazards. 
+</p>
+<p>In a turn-based isometric presentation, the player descends through successively hazardous environments while collecting, studying and/or exterminating unique alien species and artifacts. Identification and study of collected specimens unlock new gameplay options, and provide the player with the tools necessary to continue the descent.
+</p>
+<p>The game values emergent player-directed problem solving over traditional puzzle design, through scenario prompts that the player responds to using a combination of tools and skills.
+</p>
+<p>Xenobiosys is unique in striking a balance between player-enacted problem solving and traditional storytelling in an open world, that focuses on skill development and emergent systems.
+</code>
+</p>
+<p>it all looked perfect to me. on paper. so I found a couple of my close designer/player friends and asked them to look over the design document. both of them were fairly open to the idea of an old-school RPG with modern sensibilities, so i thought the idea would be a smash hit. i secretly hoped that they might even want to work on the project as contractors.
+</p>
+<p>crickets.
+</p>
+<p>both of them had no response at all to the design. not only did they have no particular interest in the game, they had no particular <strong>response</strong> to what they read. not even criticisms. it just wasn't even interesting enough to respond to.
+</p>
+<p>so I thought to myself, "okay - maybe it's because they can't envision the artwork or the gameplay"... so I spent a week painfully learning how to illustrate the art style I was aiming for (art tests), hoping that it would help clarify what was in the document. neither person responded to the art either.
+</p>
+<p>a friend once told me, "the only thing worse than a movie that's so bad it's good, is a movie that's so mediocre that it's not even bad." judging from their responses, this was <strong>that</strong> kind of game. one so mediocre in its design that it is just uninteresting.
+</p>
+<p>a week away from the design document and the art tests gave me some much-needed perspective. yes, the world I was describing was perhaps conceptually interesting - but the minute-by-minute gameplay wasn't interesting at all. there were no strong characters, no particular story for the player to follow, and - let's face it - "evil corporation getting you to do dirty deeds" is so commonplace today that it's not even worth using as a quest context.
+</p>
+<p>in the end, the design was a non-starter. if this design document couldn't convince two friends who were already sympathetic to old-school DOS games, there is a near-zero chance of convincing anyone outright hostile to the genre to play it.
+</p>
+<p>I was disappointed. I felt like I had lost two weeks on a bum bet. but what on earth was I going to make instead? i spent a week spinning around in circles trying to find a way to make the alien game more palatable.
+</p>
+<p>my mind slowly drifted back to a project I had started way back in 2020, after seeing screenshots of the beautifully illustrated <a href="https://en.wikipedia.org/wiki/World_of_Horror">World of Horror</a>. I had come up with a novel design, using a similar 1-bit style of art, set in a post-catastrophe alternate history of Japan. I worked on the game for years as a passion project, generating some interest in it from friends and followers. but gave up on it in 2022 after hitting some difficult design and art problems.
+</p>
+<p>a few days ago, I dusted off that old git repo and looked at what I had. it was surprisingly playable, even if it wasn't enjoyable. it needed a ton of work, but it was far further along than I had realized.
+</p>
+<p>what do you do when you have a bad idea? <strong>you don't get hung up on it and try to make it work.</strong> you move laterally, as a friend told me recently, and keep up your momentum. moving forward is the only way to getting a game finished.
+</p>
+<p>so tomodashi's first game will be one that I've already worked on for a while. in future journal posts, I'll talk about the setting and gameplay.
+]]></description><pubDate>Sat, 06 Jan 2024 03:00:00 GMT</pubDate><guid>?page=2024-01-06</guid></item><item><title>daily update</title><link>?page=2024-01-07</link><description><![CDATA[<p>Date: Sunday January 07th, 2024
+</p>
+<p>Time: 01:26:52 AM
+</p>
+<p>By: <a href="http://mastodon.tomodori.net/@vga256">vga256</a>
+</p>
+<p>studied japanese mythology & ghost folklore today, and found some wonderful resources on various kinds of spectres and undead creatures for the game. i'm not making a horror game, but it will have some of the spookier visual elements of one.
+</p>
+<p>the game set in a late-1980s alternate version of east Japan, on a formerly populated island after a major catastrophe. 
+</p>
+<p>rand & robin miller's Myst meets koichi mori's Cosmology of Kyoto. all drawn in 1-bit monochromatic line art, as if it was a long-lost japanese Hypercard stack recently rediscovered
+]]></description><pubDate>Sun, 07 Jan 2024 03:00:00 GMT</pubDate><guid>?page=2024-01-07</guid></item></channel></rss>

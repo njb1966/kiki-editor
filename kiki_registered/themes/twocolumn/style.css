@@ -1,0 +1,118 @@
+/* set base colours */
+:root { --color_main: #cd535b; --color_contrast: #2a2a2a; --color_highlight: #ff9c84; --color_text: #c9c9c9;}
+
+/* fonts */
+@font-face { font-family: hp150;	src: url(WebPlus_HP_150_re.woff); font-weight: normal; font-style: normal; }
+@font-face { font-family:wakuwaku; src: url(mini-wakuwaku-maru.otf); font-weight: normal; font-style: normal; }
+
+/* pages share these styles */
+body { font-size: 14px; background-color: var(--color_contrast); color: var(--color_text); font-family: hp150; font-smooth: antialiased; -webkit-font-smoothing: antialiased; }
+div#container {display: flex;}
+div.title { font-size: 1.2em; text-align: center; color: var(--color_contrast); background-color: var(--color_main);}
+div.title span { display: inline-block; vertical-align: middle;}
+div#navmenu { margin-top: 2em; margin-right: 0.2em;}
+div.navmenu-item 
+{
+	max-width: 10em;
+	border-right: solid var(--color_main);
+	display: block;
+	background-color: var(--color_main);
+	cursor: pointer;
+	color: var(--color_highlight);
+	margin-bottom: 0.2em;
+}
+
+div.navmenu-item span a 
+{
+	text-align: center;
+}
+
+div#content  {	color: var(--color_text);	flex-grow: 1; }
+div#content div.page_title a { color: var(--color_highlight); text-decoration: underline; } 
+div#content div.page_title a:visited { color: var(--color_highlight);} 
+div#content div.page_title a:hover{ color: var(--color_highlight2); }
+
+/* pages */
+div.page_content
+{
+	display: block;
+	border: 0.3em solid var(--color_main);
+	padding: 0.5em;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+div.subtitle { font-size:4em; font-family: wakuwaku; font-smooth: antialiased; -webkit-font-smoothing: antialiased; }
+div.subtitle2 { font-size: 2em; font-family: wakuwaku; font-smooth: antialiased; -webkit-font-smoothing: antialiased; }
+
+div.page {
+	display: block;
+	border: 0.3em solid var(--color_main);
+}
+
+div#page_menu { text-align:right; }
+
+div.page_title { font-weight: bold;}
+div.page_body { padding: 0.5em; }
+
+/* page headers */
+div.page_header { padding: 0.5em; }
+div.page_date { }
+div.page_time { }
+div.page_author {}
+
+/* links */
+a:link {color: var(--color_contrast); text-decoration: none; }
+div.page a, div.page_content a { color: var(--color_main);}
+a:visited { color: var(--color_contrast); text-decoration: none; }
+a:hover { color: var(--color_highlight); text-decoration: none; }
+div.page a:hover, div.page_content a:hover { color: var(--color_highlight);}
+
+/* errors */
+div.error { text-align: center; background-color:var(--color_main); color: var(--color_contrast);}
+div.error span a { color: var(--color_highlight2); }
+div.error span a:hover { color: var(--color_highlight2); }
+div.error span a:visited { color: var(--color_highlight2); }
+
+/* footer */
+div.footer { clear: both; font-size: small; text-align: right; color: var(--color_text);}
+div.footer a { color: var(--color_text);}
+
+/* code */
+code { color:var(--color_highlight);}
+
+/* pre */
+pre { white-space:pre-wrap; }
+
+/* input */
+textarea { width: 100%; min-height: 15em; }
+
+/* buttons */
+span.edit_button { text-align: right; color: var(--color_contrast); background-color: var(--color_main); }
+button, span.button
+{
+  /* restyle form buttons to look like text */
+  align-items: normal;
+  border: none;
+  box-sizing: content-box;
+  color: var(--color_contrast); 
+  background-color: var(--color_main);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  height: auto;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  text-decoration: underline;
+  transform-origin: 0 0;
+  width: auto;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */
+  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
+}
+span.button a, span.edit_button a:visited { color: var(--color_contrast); }
+span.edit_button:hover { color: var(--color_highlight);}
+span.button a:hover { color: var(--color_contrast); background-color: var(--color_highlight); }
+button:hover { background-color: var(--color_highlight);}

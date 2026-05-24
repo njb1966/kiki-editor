@@ -1,0 +1,23 @@
+((header))
+title:kiki Help
+menutitle:Help - Main
+tags:help
+markup:bug
+((content))
+The help area is split up into a few different pages:
+
+====First Time Users====
+
+The [help/get_started]{Getting Started Guide} shows you how to write your first page, and how to use bug markup/formatting. 
+
+The [help/bug_syntax]{Bug Markup Quick-Reference} page shows you how to write pages using bug.
+
+====Getting the Most out of your Instance====
+
+The [help/user_guide]{User Guide} goes into detail with getting the most out of your kiki instance by modifying the settings, selecting a markup language, using RSS feeds, and generating dynamic pages.
+
+The [help/themes]{Theme and Templating Guide} explains how themes work, and how you can build your own.
+
+====Programming====
+
+The [help/programming]{Programming Guide} is for the coder who wants to make modifications to how kiki works under the hood, including sketches of the program flow and tips on where to make your modifications.

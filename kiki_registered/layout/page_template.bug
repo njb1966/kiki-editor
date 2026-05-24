@@ -1,0 +1,5 @@
+// template for new/empty pages
+((header))
+title:a new page
+author:me
+((content))

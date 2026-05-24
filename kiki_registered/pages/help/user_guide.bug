@@ -1,0 +1,332 @@
+((header))
+title:kiki User Guide
+menutitle:Help - Guide
+tags:help
+markup:bug
+((content))
+--=======Customizing Your kiki Instance=======--
+When installed using the default settings, kiki works as a homepage builder. You just modify an existing page or add a new one, and you're off to the races.
+
+Getting the most out of kiki involves modifying these settings, so you can do some of these really cool things:
+* Have wiki pages that can only be modified by you, open to the public, or editable only with a password.
+
+* Use an alternate markup language like Markdown.
+
+* Use "SEO-friendly" permalink URLs like https://yoursite.com/mypage
+
+* Generate an RSS feed.
+
+* Generate static HTML pages.
+
+* Use a different theme.
+
+* Display dynamic data on pages like the post date, tags, article author, or page title.
+
+* Show specific pages on menus.
+
+* Show pages that have a specific tag.
+
+* Customizing the navigation menu
+
+======Sub-Folders======
+Organizing your pages into sub-folders is a good idea when you're building a large site, or have dozens of pages, of different kinds, such as a blog.
+
+To create a sub-folder, just add a folder to your /pages/ folder. For example:
+```
+/homepage/pages/blog/
+```
+
+Now, to create a permalink to a blog post called "my first post", use the internal permalink code `[`blog/my_first_post`]`, where 'blog' is the name of the sub-folder you created.
+
+======Wiki Mode======
+To turn on wiki mode, modify settings.php:
+```
+$public_wiki = true;
+$wiki_password = "wiki"; // change this to something you'll remember
+$wiki_delete_allowed = false; // set true if you want to allow page deletion from the editing interface
+```
+
+When wiki mode is enabled, **loading an existing page** will show the page with an "Edit" button on the menu.
+
+Clicking on the Edit button launches the page editor in the browser. If $wiki_delete_allowed is enabled, a delete button allows you to delete a page.
+
+When a page is deleted in wiki mode, its filename is changed to (some_pagename).deleted. This is a safety feature to prevent accidental deletions.
+
+Hitting the Publish button publishes the page with any modifications made. Clicking Cancel exits editing mode.
+
+In wiki mode, **loading a non-existing page** automatically creates a new empty page using the page template found in /layout/page_template.bug. When the Publish button is clicked, the new page is added to the wiki. If you click Cancel, the page is not added to the wiki.
+
+Creating a new page is as simple as adding an **internal link** on any page to the new page. For example, add a `[`cats`]` link on a page. After the page has been published, load it in your browser. Click on the `[`cats`]` link, and you'll automatically enter editing mode for that page.
+
+======Using Markup Language Plug-ins======
+kiki supports any markup language that accepts a string (or array of lines) of markup, and returns a string of formatted HTML.
+Michel Fortin's PHP-Markdown and Parsedown are supported with no modifications necessary. Just unzip the file to the /plugins/ folder.
+
+To use Parsedown, modify settings.php like this:
+```
+$markup_interpreter = "parsedown";
+```
+
+To use PHP-Markdown, modify settings.php like this:
+```
+$markup_interpreter = "php-markdown";
+```
+
+If you'd like to use a different markup parser, you'll have to make modifications to utils.php. Refer to this section in utils.php for more information:
+```
+// these lines automatically run when utils.php is loaded
+// and set the default interpreter according the one
+// in Settings
+```
+
+======SEO-Friendly Permalinks======
+Turning on SEO-friendly URLs is **not** something that can be done with kiki alone. This is a job done by your HTTP server, like Apache or nginx.
+
+If you're running Apache, you can modify your site's .htaccess file like so:
+```
+<VirtualHost *:80>
+    ServerName my-site.com
+    DocumentRoot /var/www/mypages
+
+    <Directory /var/www/mypages> 
+        Options Indexes FollowSymLinks
+        AllowOverride None 
+        Order allow,deny 
+        allow from all 
+
+        RewriteEngine On
+        RewriteBase /
+        RewriteRule ^index\.php$ - [L]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.php [L]
+    </Directory> 
+</VirtualHost>
+```
+
+If you're running nginx, you'll have to modify your server's configuration file. Use one of these two configurations to suit your particular directory:
+```
+## For a kiki site running in the root folder
+location / {
+    index index.html index.htm index.php;
+    rewrite ^/([^\.]+)$ /index.php?page=$1$args;
+}
+```
+Or:
+```
+## For a kiki site running in a subfolder called "homepages"
+location /homepages/ {
+    index index.html index.htm index.php;
+    rewrite ^/homepages/([^\.]+)$ /homepages/index.php?page=$1$args;
+}
+```
+
+Once your server has been configured properly, turn on "easy" permalinks in kiki by modifying settings.php:
+```
+$permalink_style = "easy";
+```
+
+With "easy" permalinks on, instead of visiting http://my-site.com/index.php?page=home, you can now visit http://my-site.com/home and kiki will find the right page automagically.
+
+Note: both classic and easy permalinks are valid URLs when kiki is set to the "easy" permalink style.
+
+======Generating an RSS Feed======
+RSS feeds can be generated from all pages, or only specific pages that have a "tag" set in the header.
+
+First, turn on RSS feeds by modifying settings.php:
+```
+$rss_enabled = true;
+```
+
+By default, **all pages** are automagically added to the RSS feed. That might not be desirable if you only want specific pages added, like blog posts. To change this behaviour, modify settings.php:
+```
+$rss_tags = "post"; // now, any page that has "tag: post" will be added to the rss feed, and all others excluded.
+```
+You can include multiple tags by adding a comma between each tag.
+
+By default, the RSS feed is generated as rss.xml in kiki's top (root) folder. You can set the path or filename to whatever you'd like in settings.php:
+```
+$rss_file = "rss.xml";
+$rss_document = "rss/"; // sets the folder to the rss subdirectory
+```
+
+If the file and folder do not already exist, they will be automatically created when the file is generated.
+
+**Programmer's Tip:**
+
+The HTML layout of the RSS feed can be modified in rss.php to suit your specific needs, in the following functions:
+```
+build_rss_feed_header()
+build_rss_feed_item()
+```
+
+======Static Site Generation======
+Some folks don't like serving dynamic pages on the net, and kiki fully supports static site generation. 
+(If you're unfamiliar with the term: it just means spitting out .html files instead of serving pages from index.php).
+
+To turn on SSG mode, modifying settings.php:
+```
+$static_generation = true;
+```
+
+To generate the site, you can browse to index.php and all of the .html files will be generated. Note that kiki **overwrites any .html file with the same name**.
+
+Alternately, you can generate the HTML files from the command line/terminal by typing:
+```
+php /your-kiki-site-directory/index.php
+```
+
+By default, the .html files are generated in the "static/" folder. You can change this behaviour by modifying settings.php:
+```
+$static_pages_dir = "new_html_pages/";
+```
+
+======Switching Themes======
+Themes installed in the /themes folder should follow this format:
+```
+/themename/content.php // contains a layout to show the page $title, $menu_items and $content
+/themename/style.css // to style that layout
+```
+
+To change the theme, update settings.php:
+```
+$theme = "themename"; // note that themename MUST match the name of the folder in /themes/
+```
+
+If you'd like to build your own kiki theme, make a copy of one of the existing pre-installed themes and hack away at it!
+
+<a id="dynamic">======Dynamic Pages======</a>
+One of kiki's major features that sets it apart from many static site generators is the ability to create dynamic pages, just as you would with PHP, without all of the gnarly PHP code. There are two options that you can integrate into each page: **variables** and **keywords**.
+
+=====Using Variables=====
+kiki allows you to include all kinds of variables that are generated on-the-fly, such as the page author, publishing date, or any other kind of information you've added to the `((`header`))` section of a document.
+For instance, say that you don't want to have to type out the publishing date on every single page you write. kiki has a **date** variable that you can include in your document, and it will show the date specified in the header.
+
+To add a date variable, add this line to your document's `((`header`))` section:
+```
+date:2025-01-19 // note the date MUST be in the YYYY-MM-DD format!
+```
+
+Now, to ~~show~~ that date variable in the document, add this line to your document's `((`content`))` section:
+```
+This article was published on: $$date$$
+```
+
+See the `$$` double dollar-sign tags? Wrap those around a word, and kiki will check if that variable exists. If the variable exists, it will return whatever value was stored in it.
+
+There are many built-in kiki variables that you can use. Here's a list:
+
+`$$`title`$$`: displays the article's title, when included in the header.
+
+`$$`date`$$`: displays the date, when included in YYYY-MM-DD format in the header; allows for page to be sorted by date.
+
+`$$`time`$$`: automatically displays the file's original creation time.
+
+`$$`tags`$$`: displays any tags included (separaed by commas) in the header as hyperlinks.
+
+`$$`menutitle`$$`: lets you use a specific title name when displaying the menuitem for this page.
+
+You can add ~~any~~ variable you want by adding it to the header, and then wrapping it in `$$` tags.
+
+Want to add a custom variable not built-in to kiki, or specified in the header? Head over to the [help/programming#dynamic]{programming page} to learn how.
+
+=====Using Keywords=====
+Okay, but what about displaying more complex information - such as providing a list of links to all pages? This is where kiki's **keywords** come in handy.
+This is almost like a scripting language, except that it relies on keywords like you'd see in a very simple adventure game's text parser.
+
+Let's say you want to show a list of links to all of the pages on your site. Normally you'd have to manually type in the links, and update the links as you create new pages. That's too much work.
+Instead, we can use the **show links** keyword to do the same job, and it will automatically add links to any new pages you create.
+```
+`((`header`))`
+title:my pages
+`((`content`))`
+`!{`show page links`}`
+```
+Notice the bug tags **`!{`** and **`}`**: these tell kiki that whatever is inside of the curlybraces is a set of keywords. 
+
+The keywords **`!{`show page links`}`** provides a list of links to every page on the site. Try it out!
+
+You'll probably notice that the link descriptions are just the names of the pages. Prefer to use the page title as the link description instead? Try using **`!{`show page links with titles`}`**, and you'll see much nicer output.
+
+What if these are blog posts, and you want to see their dates instead? Try **`!{`show page links with dates`}`** instead, and any posts with the **date** variable set in the header will show their date.
+
+<a id="tag">======Showing Pages with a Specific Tag======</a>
+Tags are one of the most important categorization tools that kiki offers. You might have noticed that kiki doesn't make a distinction between "blog posts" or "pages", as is common in content management systems like Wordpress.
+
+We can make our own categories of pages by adding tags to them. For instance, this page uses tags:
+```
+`((`header`))`
+title:my first blog post is about cats
+date:2025-01-19
+tags: post, cats
+`((`content`))`
+... snip ...
+```
+
+The above page uses two tags: post and cats. Notice that they're separated by a comma: all tags **must** be separated by commas.
+Now if you add the "post" tag to any pages that you want to show as blog posts, we can show ~~only~~ pages with the post tag.
+
+To show only pages with the "post" tag, create an internal link using `[`&tag=post`]{`My Posts`}`.
+
+Or, you can show the pages using the permalink URL: https://my-site.com/index.php?tag=post (classic permalinks) or https://my-site.com/?tag=post (easy permalinks)
+
+Sometimes you don't want to just link out to tagged pages. If you want to insert a sub-page inside of the page you're working on. You can do that with the following keyword on the page:
+`!{`show page tags:post`}`
+
+This will load **all** pages with the tag "post" inside of the page you're working on. You can even supply it with some extra keywords to make things more specific:
+
+`!{`show page tags:post,dogs,cats sort:oldest maximum:5`}`
+
+**Tags:** name of the tags you want shown, comma-separated
+**Sort:** newest/oldest
+**Maximum:** from 1 to the maximum number of pages you want retrieved from the tag. Leaving out this keyword will retrieve all pages matching the tags.
+
+By default, the pages are displayed in the order the files are found in their directories. If you'd like to sort them, see the next section.
+
+====Sorting Tagged Pages====
+Tags also support sorting the pages by date. In order for a page to be sortable by date, they must contain a date entry in the header in YYYY-MM-DD format:
+```
+`((`header`))`
+title:my blog post
+date:2025-01-01
+... snip ...
+```
+
+To sort tagged pages by date using the url **&sort=newest** or **&sort=oldest**, create an internal link like:
+
+`[`&tag=post&sort=newest`]`{My Posts Sorted from Newest To Oldest`}`
+
+`[`&tag=post&sort=oldest`]`{My Posts Sorted from Oldest To Newest`}`
+
+And if you're using kiki keywords within a page:
+
+`!{`show page tags:post sort:oldest`}`
+
+======Gopher Holes======
+kiki now includes preliminary support for generating gopher pages instead of HTML. This is a preliminary feature because, honestly, gopher has absolutely gnarly formatting and there are a bazillion different interpretations of the protocol. 
+I chose the "gophermap" style of page formatting because it is consistent.
+
+At this time, kiki turns each page into a gophermap, with footnotes at the bottom for any internal or external links.
+If you'd like to change the formatting of your gophermaps, edit /layout/gophermap_template.bug and it will apply to all generated pages.
+
+======Custom Navigation Menus======
+By default, **menu_auto_add_pages = true;** and kiki automatically adds menu items for each page on your site 
+
+======Security Considerations======
+You can prevent others from downloading your .bug (or .md or any other
+markup format files) by adding these lines to your server configuration file.
+
+nginx example:
+```
+location ~* \.(bug|md)$ {
+    deny all;
+}
+```
+
+apache example:
+```
+<Files  ~ "\.(bug|md)$">
+	Order allow,deny
+	Deny from all
+</Files>
+```

@@ -1,0 +1,120 @@
+((header))
+title:Theme and Templating Guide
+menutitle:Help - Themes
+tags:help
+markup:bug
+((content))
+--======Building Themes======--
+
+If you're here, it's because you want to modify one of the built-in themes, or build your own.
+
+Themes are made of a minimum of two files with the following folder structure:
+
+    /themes/themename/style.css
+    /themes/themename/page_layout.php
+
+**=====style.css=====**
+
+* A cascading stylesheet that contains all of the formatting, fonts, colours and alignment.
+
+* The easiest change is to modify the colours used. Colours are stored in a few variables at the top of the sheet: **color_main**, **color_contrast**, **color_highlight**, **color_highlight2**, **color_shadow**.
+
+* While I've tried to avoid hardcoding named HTML elements such as `<`div`>` in the page building code, there are a few places where there are hardcoded names that your stylesheet can use:
+
+====Classes used in library/page.php====
+
+**div.page_content**: contains all of the page's `((`content`))`
+
+**div.page_title**: title used at the top of each page.
+
+**div.error**: contains any kind of feedback to the user, such as error messages.
+
+====Classes used in library/build.php====
+
+**div.footer**: contains the content of **footer.bug**
+
+====Classes used in library/wiki.php====
+
+**div.edit_form**: contains the wiki's page editing form.
+
+**div.textarea**: contains the textarea within the wiki's page editing form.
+
+**button.submit**: buttons used on the wiki page editing form.
+
+(I'd love to get rid of these hardcoded names, but for the time being they simplify page generation code.)
+
+**=====page_layout.php=====**
+
+When kiki builds a page, it uses the current theme's **page_layout.php** as a template for building each page. This is the document you'll want to modify if you want to change the layout of your page, such as moving around the menu or page content.
+
+Work through most basic built-in layout, **themes/onecolumn/page_layout.php**, one chunk at a time:
+
+```
+<?php
+// a basic one-column layout
+
+    global $current_page, $public_wiki, $theme_basename;
+    $htmlOutput = '<div id="container">';
+    if ($title)
+        $htmlOutput .= '	<div class="title"><span>' . $title . '</span></div>';
+
+```
+
+In the above chunk, we first define the page as a php script, and then let the script access a bunch of kiki's global variables.
+
+**$current_page**: defined in /index.php, keeps track of the name of the page we're on.
+
+**$public_wiki**: defined in /settings.php, checks if kiki is running in public wiki mode.
+
+**$theme_basename**: defined in /library/page.php, gets the URL of the theme.
+
+Notice how all HTML output is stored in the variable $htmlOutput: that's because when this script is done processing, it will return all of its output to the calling function **build_page_content()** in build.php.
+
+Wonder where the $title variable was defined? One of php's (weird) variable scope features: it is defined in the calling function **build_page_content()**, and page_layout.php automatically gets access to the variable.
+
+```
+
+    // add each navmenu item to the navmenu
+    $htmlOutput .= '<div id="navmenu">';
+    foreach ($menu_items as $menu_item)
+    {
+        $htmlOutput .= '<div class="navmenu-item"><span>' . $menu_item . '</span></div>';
+    }
+    $htmlOutput .= '</div>'; // close navmenu
+
+```
+
+Next, let's deal with menu display. Just like with $title, $menu_items is an array of menu items that are inherited from the function **build_page_content()** in build.php. 
+
+Because $menu_items is an array, we loop through each item in the list and then wrap each $menu_item in a div.
+
+```
+    // only show the edit link when wiki mode is enabled
+    if ($current_page && $public_wiki)
+    {
+        $htmlOutput .= '    <div id="page_menu">';
+        $edit_link = build_local_permalink($current_page, "Edit Page", "edit");
+        $htmlOutput .= '<span class="edit_button">' . $edit_link . '</span>'; // add edit option at top of page
+        $htmlOutput .= '    </div>'; // close page_menu
+    }
+```
+
+The above chunk first checks if wiki mode is enabled, and if the user is visiting a page named $current_page, which is defined in index.php. 
+
+(The $current_page check is necessary, because we ~~don't~~ show this link in static generation mode, and when a user is viewing many pages at the same time.)
+
+The **build_local_permalink** call creates an internal link to the $current_page with a name called "Edit", and an $action called "edit".
+
+```
+
+    $htmlOutput .= '    <div id="content">';
+    $htmlOutput .= $content;
+    return $htmlOutput;
+?>
+```
+
+Now, we add the **$content** - the actual content of the entire document. Just like with $title and $menu_items, this variable is inherited from the calling function **build_page_content()**.
+
+And finally, we return the generated HTML to the calling function **build_page_content** in build.php so it can build the rest of the document.
+
+If you're building your own theme, I strongly suggest just copying one of the existing page_layout.php files, and modifying it to your taste.

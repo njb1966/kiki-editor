@@ -1,0 +1,19 @@
+((header))
+title:bug Markup Syntax
+menutitle:Help - Bug
+tags:help
+markup:bug
+((content))
+--Bug Markup Quick-Reference--
+`**`**Bold text**`**`<br>
+`~~`~~Italic text~~`~~`<br>
+`--`Centered text`--`<br>
+Internal Hyperlink: `[`wiki_article_name`]`<br>
+Internal Anchor Hyperlink: `[`#anchor_name`]`<br>
+External Hyperlink: `[`the.website.domain`]``{`and the link's description`}`<br>
+Image with alt description: `#``[`tomodashi.com/images/bug.png`]``{`an illustration of a bug`}`<br>
+`>>>`Blockquoted text`>>>`<br>
+
+&#39;&#39;&#39; Preformatted text &#39;&#39;&#39;
+
+```&#96;&#96;&#96; Lines of code &#96;&#96;&#96;```

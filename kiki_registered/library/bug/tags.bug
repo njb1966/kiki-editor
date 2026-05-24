@@ -1,0 +1,78 @@
+// Create your own custom bugup language by
+// messing around with the last two columns
+// of every row! :)
+// columns are separated by a : colon
+
+// format for adding simple <tag></tag> pairs
+// tagname:<tag>:</tag>:start_symbol:end_symbol
+// simple tag pairs
+// ------------------
+((tags))
+bold:<strong>:</strong>:**:**
+italic:<em>:</em>:~~:~~
+center:<center>:</center>:--:--
+blockquote:<blockquote>:</blockquote>:>>>:>>>
+pre:<pre>:</pre>:''':'''
+code:<code>:</code>:```:```
+h1:<h1>:</h1>:=======:=======
+h2:<h2>:</h2>:======:======
+h3:<h3>:</h3>:=====:=====
+h4:<h4>:</h4>:====:====
+h5:<h5>:</h5>:===:===
+h6:<h6>:</h6>:==:==
+noparse:::@@@:@@@
+
+// custom/special tags
+// these tags don't follow the usual 
+// paired tag structure in html
+// and sometimes rely upon single tags
+//-------------------
+((linktag))
+url:[:]
+name:{:}
+
+((hrtag))
+hr:<hr>:-----
+
+((imagetag))
+url:#[:]
+name:{:}
+
+// escapes html into escape characters using &
+((escapetag))
+escape:`:`
+
+// capture tabs and turn them into whitespaces
+((tabsymbol))
+tab:&nbsp; &nbsp; &nbsp; &nbsp;:	
+
+// dynamic content is an array
+// of variables that can be used
+// to inject content into bug pages
+((dynamictag))
+dynamicvariable:$$:$$
+
+// when bug is used on a kiki instance
+// this tag allows kiki to execute
+// keywords
+((keywordstag))
+keywords:!{:}
+
+////// Gopher-specific section //////
+// if the gopher service is used
+// these tags will control its text output
+
+((gophertags))
+bold:*:*:**:**
+italic:_:_:~~:~~
+center:::--:--
+blockquote:    :    :>>>:>>>
+pre:::''':'''
+code:::```:```
+
+((gopherhr))
+hr:............................................................:-----
+
+// turn tabs into whitespaces
+((gophertab))
+tab:    :	

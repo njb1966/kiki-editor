@@ -1,0 +1,9 @@
+// dynamic content variables store information that can be used in the content area
+// of pages. this file is where you can set some custom dynamic content variables
+// any variables defined in this file are available to *any* page
+
+// example: if you want to display $$current_weather$$ on a page
+// you must first define the Current_Weather variable in this file like this:
+// ((header))
+// Current_Weather:Sunny and +16 Celsius, with a 30% Chance of Showers
+((header))

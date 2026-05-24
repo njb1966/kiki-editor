@@ -1,0 +1,113 @@
+/* set base colours */
+:root { --color_main: #020202; --color_contrast: #4BAAC3; --color_highlight: #97e7fc; --color_highlight2: #f2f2f2;}
+
+/* fonts */
+@font-face  { font-family: andalemo; src: url(andalemo.ttf); font-weight: normal; font-style: normal; }
+@font-face { font-family:wakuwaku; src: url(mini-wakuwaku-maru.otf); font-weight: normal; font-style: normal; }
+
+/* pages share these styles */
+body { font-size: 16px; background-color: var(--color_main); color: var(--color_contrast); font-family: andalemo, monospace; font-smooth: antialiased; -webkit-font-smoothing: antialiased; }
+div#container { width: 100%; }
+div.title { font-size: 1em; text-align: center; color: var(--color_main); background-color: var(--color_highlight);}
+div.title span { display: inline-block; vertical-align: middle;}
+div#navmenu { position: sticky; top: 0; display: flex; text-align: center; background: var(--color_main); overflow-x:auto;}
+div.navmenu-item 
+{
+	text-align:center;
+	cursor: pointer;
+}
+div.navmenu-item a { color: var( --color_main); background-color: var(--color_contrast); }
+div.navmenu-item a:hover { background-color: var(--color_highlight); }
+div.navmenu-item a:visited { color: var( --color_main); }
+div.navmenu-item::first-letter { background-color: var(--color_highlight); }
+
+span.decoration { color: var(--color_highlight); }
+
+div#content { color: var(--color_contrast); }
+
+/* pages */
+div.page_content
+{
+	display: block;
+	border: 0.3em solid var(--color_highlight);
+	padding: 0.5em;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+div.subtitle { font-size:4em; font-family: wakuwaku; font-smooth: antialiased; -webkit-font-smoothing: antialiased; }
+div.subtitle2 { font-size: 2em; font-family: wakuwaku; font-smooth: antialiased; -webkit-font-smoothing: antialiased; }
+
+div.page {
+	display: block;
+	padding: 0.5em;
+	border: 0.3em solid var(--color_highlight);
+	margin-top: 1em;
+}
+div#page_menu { text-align:right; }
+div.page_title { font-weight: bold;}
+div.page_body { padding: 0.5em; }
+
+/* page headers */
+div.page_header { padding: 0.5em; }
+div.page_date { color: var(--color_highlight); }
+div.page_time { color: var(--color_highlight);}
+div.page_author { color: var(--color_highlight);}
+
+/* links */
+a:link {color: var( --color_main); text-decoration: none; }
+div.page, div#content a { color: var(--color_highlight); text-decoration: underline; } 
+div.page, div#content a:visited { color: var(--color_highlight);} 
+div.page, div#content a:hover{ color: var(--color_highlight2); }
+div.page h1, h2, h3, h4, h5, h6 { color: var(--color_highlight); }
+div#content div.title span a, div#content div.title span a:visited { color: var( --color_main); }
+div#content div.title span a:hover, div#content div.title span a:hover {color: var(--color_highlight2);}
+a:hover { color: var(--color_highlight2); }
+div.page a:hover, div.page_content a:hover { color: var(--color_highlight2);}
+
+/* errors */
+div.error { text-align: center; background-color:var(--color_highlight); color: var( --color_main);}
+
+/* footer */
+div.footer { font-size: small; text-align: right; color: var(--color_contrast);}
+div.footer a { color: var(--color_contrast);}
+
+/* code */
+code { color:var(--color_highlight);}
+
+/* pre */
+pre { white-space:pre-wrap; }
+
+/* input */
+textarea { width: 100%; min-height: 15em; }
+
+/* buttons */
+span.edit_button { text-align: right; color: var( --color_main); background-color: var(--color_contrast); }
+span.edit_button a:visited { color: var( --color_main);}
+span.edit_button a:hover { background-color: var(--color_highlight);}
+button, span.button
+{
+  /* restyle form buttons to look like text */
+  align-items: normal;
+  border: none;
+  box-sizing: content-box;
+  color: var( --color_main); 
+  background-color: var(--color_contrast);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  height: auto;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  text-decoration: underline;
+  transform-origin: 0 0;
+  width: auto;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-logical-height: 1em; /* Chrome ignores auto, so we have to use this hack to set the correct height  */
+  -webkit-logical-width: auto; /* Chrome ignores auto, but here for completeness */
+}
+span.button a:visited { color: var( --color_main); }
+span.button a:hover { color: var(--color_highlight); }
+button:hover { background-color: var(--color_highlight);}

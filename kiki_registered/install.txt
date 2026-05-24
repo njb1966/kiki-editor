@@ -1,0 +1,57 @@
+                        /\-/\
+                        C  C ;
+                       >.^  /<= 
+                             \
+                             /    
+                             ;-.
+                        +++++  \ \
+                             __  /
+                     kiki    ---
+                     a tiny homepage
+                     construction set
+					 
+Thank you for purchasing the full/registered version of kiki, and keeping
+the dream of a small web alive! :D
+
+A kind reminder that this registered version is *not* shareware and can't
+be distributed. This is your personal piece of software to use and keep.
+
+With great gratitude and kindness,
+-vga256
+
+                        ==Instructions==
+
+Before installing: kiki requires the "mbstring" extension to be enabled in your
+php configuration. Use the command "php -m" to see if the extension is active.
+
+(macOS/linux/unix) must first install via package manager:
+e.g. (macOS) sudo port install php82-mbstring
+     (linux) apt-get install php8.2-mbstring
+
+Afterwards, you may need to uncomment the extension in php.ini to activate it.
+
+1. Decompress the kiki archive to wherever you want the homepage to appear 
+    on your web hosting server. (If generating a static site, put it
+	in a convenient spot on your computer.)
+    e.g.  /~user/public_html/index.php
+
+2. With a text editor, make any changes you'd like to settings.php.
+   All of the settings can be left at default, or changed to your taste.
+
+3. Load up your site in your browser to see a sample homepage.
+
+4. Modify your homepage by editing /pages/home.bug
+
+5. Add a few more posts by copying the template /layout/page_template.bug to a 
+	new file in /pages/, and filling it in with your thoughts.
+
+6. Learn how to use the bug markup language by reading /help/bug_syntax
+
+7. Change the colours, fonts and layout of your pages by modifying
+	style.css in /themes/
+
+8. Refer to the on-line interactive documentation at url 
+	/~user/public_html/help/start in easy permalinks mode, or 
+	/~user/public_html/index.php?page=help/start in classic permalinks mode.
+
+Happy homepaging!

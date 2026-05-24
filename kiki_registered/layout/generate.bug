@@ -1,0 +1,20 @@
+((header))
+title:static page generation complete!
+markup:bug
+((content))
+<center>
+'''
+   /\-/\     
+   <font color="#ffdd00">C  C</font> ;    
+  >.^  /<=   
+        \    
+        /    
+         ;-. 
+   +++++  \ \
+        __  /
+        ---  
+'''
+</center>
+<div class="error">
+--kiki did all of the hard work. $$generated_num_pages$$--
+</div>

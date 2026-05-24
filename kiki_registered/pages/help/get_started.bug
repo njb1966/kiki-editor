@@ -1,0 +1,59 @@
+((header))
+title:Getting Started With kiki
+menutitle:Help - Getting Started
+tags:help
+markup:bug
+((content))
+=======Getting Started=======
+Now that you've got kiki installed, it's time to write your first page/post/article.
+
+Let's assume that you've decided to write your pages in a text editor, and you're not using kiki's wiki editor.
+
+To create a new page, go to your /pages folder, make a copy of sample_post.bug, and name it to whatever you want.
+
+You'll notice that the sample post is split up into two sections:
+```
+`((`header`))`
+title:my first post
+date:2025-01-26
+author:[www.dialup.cafe/]{a little black cat}
+tags: post, cats
+
+`((`content`))`
+Hi. This is my first blog post using bug markup formatting.
+--This line is centered.--
+~~This line is in italics~~.
+**This line is in bold.**
+```
+
+====The Header Section====
+The `((`header`))` section lets you set some important variables used in displaying the page. There are some built-in variables that you'll probably want to use on most pages, like **title:** and **tags:** and **author:**, but they're all entirely optional.
+
+The **title:** variable lets you set the page's name that will be shown in the browser's titlebar.
+
+The **date:** variable lets you set the publishing date for the page. This **must be written in YYYY-MM-DD format**.
+
+The **time:** variable lets you set the publishing time for the page. This **must be written in HH:mm:ss format**.
+
+The **author:** variable lets you display the author's name on the page.
+
+Most important, the **tags:** variable lets you use a **comma-separated** list of names that describe the post. These might be the type of page it is, or the category or theme or mood of the page.
+
+In this case, I've added a tag called "post". This allows me to show a list of pages that all have the "post" tag.
+
+Note: None of the variables in the header are shown on the page's content, unless you explicitly request them. They're all hidden from view by design.
+
+(ps: Want to do more cool stuff with variables, like using them in the content area? Visit the [help/user_guide#dynamic]{User Guide's Dynamic Pages section} for more information.)
+
+You don't ~~have~~ to have the header section, but it is recommended.
+
+====The Content Section====
+The `((`content`))` section is where you'll write the actual blog post. Anything below that line will be shown on the page.
+
+You might have noticed that the first blog post uses some of the bug markup language tags, like italic, centered, and bold. Go ahead and play around with the bug formatting tags, and write your post. If you want help with using the tags, refer to the [help/bug_syntax]{bug markup} page for help writing in bug.
+
+Done writing? Save the file, and voila - your first kiki page is now being served live on the web!
+
+Want to learn how to write pages using the Bug markup language? [help/bug_syntax]{Continue here.}
+
+Or go straight to the [help/user_guide]{User Guide} which will help you get the most out of customizing your instance.
